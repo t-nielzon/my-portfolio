@@ -1,0 +1,9 @@
+# internal planning docs — never committed, never referenced in code/commits
+epics/
+epic-*/
+**/batches/
+**/batch-*/
+**/handover*.md
+**/completion*.md
+PR-Phasing*
+PRD*
