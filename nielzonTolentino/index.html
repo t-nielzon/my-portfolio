@@ -20,6 +20,9 @@
       content="width=device-width, initial-scale=1, user-scalable=no"
     />
     <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/theme.css?v=12" />
+    <link rel="stylesheet" href="assets/css/diagrams.css?v=12" />
+    <script src="assets/js/theme.js?v=12"></script>
     <script
       src="https://kit.fontawesome.com/c26c214d50.js"
       crossorigin="anonymous"
@@ -42,7 +45,7 @@
         <div class="row">
           <div class="col-4 col-5-large col-12-medium">
             <span class="image fit"
-              ><img src="images/avatar.jpg" alt="Nielzon Tolentino"
+              ><img src="images/avatar.png" alt="Nielzon Tolentino"
             /></span>
           </div>
           <div class="col-8 col-7-large col-12-medium">
@@ -50,10 +53,12 @@
               <a href="https://git.io/typing-svg"
                 ><img
                   src="https://readme-typing-svg.herokuapp.com?font=Roboto&weight=300&size=36&duration=1400&color=000000&center=true&vCenter=true&repeat=false&random=false&width=100&height=60&lines=+Hi.+I'm"
+                  data-src-dark="https://readme-typing-svg.herokuapp.com?font=Roboto&weight=300&size=36&duration=1400&color=E6EDF5&center=true&vCenter=true&repeat=false&random=false&width=100&height=60&lines=+Hi.+I'm"
                   alt="Typing SVG" /></a
               ><a href="https://git.io/typing-svg"
                 ><img
                   src="https://readme-typing-svg.herokuapp.com?font=Roboto&weight=500&size=42&duration=1000&pause=250&color=000000&center=true&vCenter=true&repeat=false&random=false&width=370&height=60&lines=+;Nielzon+Tolentino."
+                  data-src-dark="https://readme-typing-svg.herokuapp.com?font=Roboto&weight=500&size=42&duration=1000&pause=250&color=E6EDF5&center=true&vCenter=true&repeat=false&random=false&width=370&height=60&lines=+;Nielzon+Tolentino."
                   alt="Typing SVG"
               /></a>
             </header>
@@ -61,7 +66,7 @@
               And I am a <strong>Senior Software Engineer</strong>. I architect
               LLM agents, serverless backends and AI-powered products for
               healthcare and fintech, from multi-agent clinical form autofill to
-              a Claude-powered customer support pipeline, and own them from
+              a policy-gated LLM customer support pipeline, and own them from
               design through production.
             </p>
             <a href="#work" class="button large scrolly"
@@ -90,10 +95,21 @@
               <p>
                 <em>Production AI:</em><br />
                 Architect multi-agent and LangGraph systems on Claude, OpenAI and
-                AWS Bedrock, with retrieval, structured outputs, prompt caching,
+                AWS Bedrock, with Databricks model serving, RAG over Databricks
+                Vector Search and Weaviate, structured outputs, prompt caching,
                 and replay and grounding evaluations that gate every model
                 change.
               </p>
+              <ul class="tech-row">
+                <li data-label="Claude"><span class="tech" role="img" aria-label="Claude" style="--i: url(/images/tech/claude.svg); --c: #D97757"></span></li>
+                <li data-label="OpenAI"><span class="tech" role="img" aria-label="OpenAI" style="--i: url(/images/tech/openai.svg)"></span></li>
+                <li data-label="AWS Bedrock"><span class="tech" role="img" aria-label="AWS Bedrock" style="--i: url(/images/tech/bedrock.svg); --c: #01A88D"></span></li>
+                <li data-label="Databricks"><span class="tech" role="img" aria-label="Databricks" style="--i: url(/images/tech/databricks.svg); --c: #FF3621"></span></li>
+                <li data-label="LangGraph"><span class="tech" role="img" aria-label="LangGraph" style="--i: url(/images/tech/langgraph.svg); --c: #7FC8FF"></span></li>
+                <li data-label="Weaviate"><span class="tech" role="img" aria-label="Weaviate" style="--i: url(/images/tech/weaviate.svg); --c: #61BD73"></span></li>
+                <li data-label="Deepgram"><span class="tech" role="img" aria-label="Deepgram" style="--i: url(/images/tech/deepgram.svg); --c: #13EF93"></span></li>
+                <li data-label="Python"><span class="tech" role="img" aria-label="Python" style="--i: url(/images/tech/python.svg); --c: #3776AB"></span></li>
+              </ul>
             </section>
           </div>
           <div class="col-6 col-6-medium col-12-small">
@@ -110,6 +126,15 @@
                 around idempotency, backpressure and clear ownership of every
                 event.
               </p>
+              <ul class="tech-row">
+                <li data-label="Go"><span class="tech" role="img" aria-label="Go" style="--i: url(/images/tech/go.svg); --c: #00ADD8"></span></li>
+                <li data-label="AWS Lambda"><span class="tech" role="img" aria-label="AWS Lambda" style="--i: url(/images/tech/awslambda.svg); --c: #FF9900"></span></li>
+                <li data-label="DynamoDB"><span class="tech" role="img" aria-label="DynamoDB" style="--i: url(/images/tech/amazondynamodb.svg); --c: #4053D6"></span></li>
+                <li data-label="Amazon SQS"><span class="tech" role="img" aria-label="Amazon SQS" style="--i: url(/images/tech/amazonsqs.svg); --c: #FF4F8B"></span></li>
+                <li data-label="MySQL"><span class="tech" role="img" aria-label="MySQL" style="--i: url(/images/tech/mysql.svg); --c: #4479A1"></span></li>
+                <li data-label="Laravel"><span class="tech" role="img" aria-label="Laravel" style="--i: url(/images/tech/laravel.svg); --c: #FF2D20"></span></li>
+                <li data-label="Redis"><span class="tech" role="img" aria-label="Redis" style="--i: url(/images/tech/redis.svg); --c: #FF4438"></span></li>
+              </ul>
             </section>
           </div>
           <div class="col-6 col-6-medium col-12-small">
@@ -125,6 +150,12 @@
                 sanitize sensitive data out of logs, mask PII before it reaches
                 a model, and back every fix with tests and alerting.
               </p>
+              <ul class="tech-row">
+                <li data-label="CloudWatch"><span class="tech" role="img" aria-label="CloudWatch" style="--i: url(/images/tech/amazoncloudwatch.svg); --c: #FF4F8B"></span></li>
+                <li data-label="JWT"><span class="tech" role="img" aria-label="JWT" style="--i: url(/images/tech/jsonwebtokens.svg)"></span></li>
+                <li data-label="GitLab CI"><span class="tech" role="img" aria-label="GitLab CI" style="--i: url(/images/tech/gitlab.svg); --c: #FC6D26"></span></li>
+                <li data-label="Docker"><span class="tech" role="img" aria-label="Docker" style="--i: url(/images/tech/docker.svg); --c: #2496ED"></span></li>
+              </ul>
             </section>
           </div>
           <div class="col-6 col-6-medium col-12-small">
@@ -140,6 +171,15 @@
                 Stripe metered and team billing, and SSO, from the first schema
                 to the release pipeline.
               </p>
+              <ul class="tech-row">
+                <li data-label="React"><span class="tech" role="img" aria-label="React" style="--i: url(/images/tech/react.svg); --c: #61DAFB"></span></li>
+                <li data-label="Next.js"><span class="tech" role="img" aria-label="Next.js" style="--i: url(/images/tech/nextdotjs.svg)"></span></li>
+                <li data-label="Node.js"><span class="tech" role="img" aria-label="Node.js" style="--i: url(/images/tech/nodedotjs.svg); --c: #5FA04E"></span></li>
+                <li data-label="TypeScript"><span class="tech" role="img" aria-label="TypeScript" style="--i: url(/images/tech/typescript.svg); --c: #3178C6"></span></li>
+                <li data-label="Stripe"><span class="tech" role="img" aria-label="Stripe" style="--i: url(/images/tech/stripe.svg); --c: #635BFF"></span></li>
+                <li data-label="Tailwind CSS"><span class="tech" role="img" aria-label="Tailwind CSS" style="--i: url(/images/tech/tailwindcss.svg); --c: #06B6D4"></span></li>
+                <li data-label="Vite"><span class="tech" role="img" aria-label="Vite" style="--i: url(/images/tech/vite.svg); --c: #9135FF"></span></li>
+              </ul>
             </section>
           </div>
         </div>
@@ -165,12 +205,9 @@
           </div>
           <div class="col-4 col-6-medium col-12-small">
             <article class="box style2">
-              <a
-                href="https://app.navix.ai"
-                target="_blank"
-                class="image featured"
-                ><img src="images/navixscribe.gif" alt="NavixScribe clinical documentation pipeline"
-              /></a>
+              <span class="image featured" data-diagram="navixscribe" role="button" tabindex="0" aria-label="Explore the NavixScribe architecture"
+                ><img src="images/navixscribe.gif" data-src-dark="images/navixscribe-dark.gif" alt="NavixScribe clinical documentation pipeline"
+              /></span>
               <h3><a href="https://app.navix.ai" target="_blank">NavixScribe</a></h3>
               <p style="text-align: justify">
                 The AI clinical scribe behind navix.ai. I engineered the pipeline
@@ -184,7 +221,9 @@
           </div>
           <div class="col-4 col-6-medium col-12-small">
             <article class="box style2">
-              <span class="image featured"><img src="images/smartfill.gif" alt="SmartFill multi-agent autofill pipeline" /></span>
+              <span class="image featured" data-diagram="smartfill" role="button" tabindex="0" aria-label="Explore the SmartFill architecture"
+                ><img src="images/smartfill.gif" data-src-dark="images/smartfill-dark.gif" alt="SmartFill multi-agent autofill pipeline"
+              /></span>
               <h3>SmartFill</h3>
               <p style="text-align: justify">
                 Multi-agent form autofill for the Navix Hub behavioral-health
@@ -197,7 +236,9 @@
           </div>
           <div class="col-4 col-6-medium col-12-small">
             <article class="box style2">
-              <span class="image featured"><img src="images/monee-ai-support.gif" alt="Monee AI support pipeline architecture" /></span>
+              <span class="image featured" data-diagram="monee" role="button" tabindex="0" aria-label="Explore the Monee AI support architecture"
+                ><img src="images/monee-ai-support.gif" data-src-dark="images/monee-ai-support-dark.gif" alt="Monee AI support pipeline architecture"
+              /></span>
               <h3>Monee AI Support</h3>
               <p style="text-align: justify">
                 A serverless AI customer-support backend for an e-commerce payments
@@ -294,7 +335,7 @@
             Tell me about your project, and let's work together to turn your
             digital dreams into a reality. Your vision, my expertise, a perfect
             match.<br /><br />
-            Email me at: nielzon@nielzontolentino.com
+            Email me at: nielzon.t@gmail.com
           </p>
         </header>
         <div class="row">
@@ -410,5 +451,8 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/diagram-content.js?v=12"></script>
+    <script src="assets/js/diagrams.js?v=12"></script>
+    <script src="assets/js/equalize.js?v=12"></script>
   </body>
 </html>

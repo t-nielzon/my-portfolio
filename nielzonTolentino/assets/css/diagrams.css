@@ -1,0 +1,176 @@
+/* brand palettes: each product keeps its own colorway in both themes */
+.dg-dialog[data-brand="scribe"] {
+	--bg: #f7f4fc; --surface: #ffffff; --ink: #1c3948; --muted: #5f6b7a;
+	--dk-fill: #4c1d95; --dk-text: #ffffff; --dk-sub: #e4d4fb;
+	--accent: #8b23ef; --pulse: #a855f7; --ok: #1f9d63; --bad: #e0533d; --warn: #d98a1c;
+}
+.dg-dialog[data-brand="smartfill"] {
+	--bg: #f2f5f8; --surface: #ffffff; --ink: #1e2e39; --muted: #5b6577;
+	--dk-fill: #1e2e39; --dk-text: #ffffff; --dk-sub: #c9d6ff;
+	--accent: #2f4fd8; --pulse: #3b82f6; --ok: #1f9d63; --bad: #e0533d; --warn: #d98a1c;
+}
+.dg-dialog[data-brand="monee"] {
+	--bg: #f1fbf6; --surface: #ffffff; --ink: #1f2937; --muted: #586474;
+	--dk-fill: #0e4d36; --dk-text: #ffffff; --dk-sub: #b9f3d8;
+	--accent: #137147; --pulse: #3fde97; --ok: #18a866; --bad: #e0533d; --warn: #d98a1c;
+}
+html[data-theme="dark"] .dg-dialog[data-brand="scribe"] {
+	--bg: #14101c; --surface: #1d1828; --ink: #ece6f7; --muted: #a79fb8;
+	--dk-fill: #6d28d9; --dk-sub: #e9d8fd; --accent: #c084fc; --pulse: #c084fc;
+	--ok: #4ade80; --bad: #f87171; --warn: #fbbf24;
+}
+html[data-theme="dark"] .dg-dialog[data-brand="smartfill"] {
+	--bg: #0f161c; --surface: #17222b; --ink: #dde6ee; --muted: #93a1b1;
+	--dk-fill: #2b4fd8; --dk-sub: #dbe4ff; --accent: #7aa2ff; --pulse: #60a5fa;
+	--ok: #4ade80; --bad: #f87171; --warn: #fbbf24;
+}
+html[data-theme="dark"] .dg-dialog[data-brand="monee"] {
+	--bg: #070b12; --surface: #0f1622; --ink: #eefcf5; --muted: #8fa3a0;
+	--dk-fill: #0e4d36; --dk-sub: #b9f3d8; --accent: #3fde97; --pulse: #3fde97;
+	--ok: #3fde97; --bad: #f87171; --warn: #fbbf24;
+}
+
+/* scene */
+.dg-svg { display: block; width: 100%; height: auto; font-family: 'Open Sans', Helvetica, Arial, sans-serif; }
+.dg-svg .bg { fill: var(--bg); }
+.dg-svg .bar { fill: var(--accent); }
+.dg-svg .lbl { fill: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: 2px; }
+.dg-svg .ttl { fill: var(--ink); font-size: 20px; font-weight: 600; }
+.dg-svg .lane { fill: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: 1.5px; }
+.dg-svg .cap { fill: var(--ink); font-size: 10.5px; font-weight: 600; }
+.dg-svg .cap.muted { fill: var(--muted); font-weight: 400; }
+.dg-svg .cap.ok { fill: var(--ok); }
+.dg-svg .cap.warn { fill: var(--warn); }
+.dg-svg .foot { fill: var(--muted); font-size: 11px; }
+.dg-svg .ar { stroke: var(--ink); stroke-width: 1.5; }
+.dg-svg .arh { fill: var(--ink); }
+.dg-svg .pg0 { stop-color: var(--pulse); stop-opacity: 0.9; }
+.dg-svg .pg1 { stop-color: var(--pulse); stop-opacity: 0; }
+.dg-svg .pc { fill: var(--pulse); stroke: var(--surface); stroke-width: 1.5; }
+.dg-svg .pk.bad .pc { fill: var(--bad); }
+.dg-svg .dg-layer { pointer-events: none; }
+.dg-svg .hit { fill: transparent; cursor: pointer; outline: none; }
+.dg-svg .hit:focus-visible { stroke: var(--accent); stroke-width: 2; stroke-dasharray: 4 3; }
+.dg-svg .nb { fill: var(--surface); stroke: var(--ink); stroke-width: 1.5; transition: stroke-width .15s; }
+.dg-svg .nb.dash { stroke-dasharray: 5 4; }
+.dg-svg .node.dk .nb { fill: var(--dk-fill); }
+.dg-svg .node.hov .nb { stroke-width: 2.5; }
+.dg-svg .node.sel .nb { stroke: var(--accent); stroke-width: 3; }
+.dg-svg .t1 { fill: var(--ink); font-size: 12.5px; font-weight: 600; text-anchor: middle; pointer-events: none; }
+.dg-svg .t2 { fill: var(--muted); font-size: 10.5px; text-anchor: middle; pointer-events: none; }
+.dg-svg .node.dk .t1 { fill: var(--dk-text); }
+.dg-svg .node.dk .t2 { fill: var(--dk-sub); }
+.dg-svg .t2.ok { fill: var(--ok); }
+.dg-svg .t2.bad { fill: var(--bad); }
+/* status text on filled nodes needs lighter tints to stay legible */
+.dg-svg .node.dk .t2.ok { fill: #86efac; }
+.dg-svg .node.dk .t2.bad { fill: #fca5a5; }
+.dg-svg .t2.warn { fill: var(--warn); }
+.dg-svg .t2.dim, .dg-svg .node.dk .t2.dim { opacity: .6; }
+.dg-svg .glow { fill: none; stroke: var(--pulse); stroke-width: 3; }
+.dg-svg .glow.bad { stroke: var(--bad); }
+.dg-svg .trk { fill: var(--muted); opacity: .25; }
+.dg-svg .prg { fill: var(--pulse); }
+.dg-svg .prg.ok { fill: var(--ok); }
+.dg-svg .lamp { fill: var(--muted); opacity: .35; }
+.dg-svg .lamp.ok { fill: var(--ok); opacity: 1; }
+.dg-svg .lamp.bad { fill: var(--bad); opacity: 1; }
+
+/* modal */
+html.dg-lock { overflow: hidden; }
+.dg-modal[hidden] { display: none; }
+.dg-modal { position: fixed; inset: 0; z-index: 10001; display: flex; align-items: center; justify-content: center; padding: 2vh 2vw; text-shadow: none; }
+.dg-backdrop { position: absolute; inset: 0; background: rgba(10, 14, 20, 0.72); }
+.dg-dialog {
+	position: relative; display: grid; grid-template-columns: minmax(0, 1.75fr) minmax(280px, 1fr); grid-template-rows: 100%;
+	width: min(1240px, 100%); height: min(720px, 94vh); background: var(--bg); color: var(--ink);
+	border-radius: 14px; overflow: hidden; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35); text-align: left;
+}
+.dg-main { display: flex; flex-direction: column; justify-content: center; padding: 1.25em; min-width: 0; }
+.dg-stage { border-radius: 10px; overflow: hidden; box-shadow: 0 0 0 1px color-mix(in srgb, var(--ink) 12%, transparent); }
+.dg-controls { display: flex; align-items: center; gap: .75em; margin-top: .9em; }
+.dg-controls button {
+	width: 2.4em; height: 2.4em; border-radius: 50%; border: 0; cursor: pointer; flex: none;
+	background: var(--accent); color: #fff; font-size: 1em; line-height: 1; display: grid; place-items: center;
+}
+html[data-theme="dark"] .dg-controls button { color: #0b0f14; }
+.dg-controls .dg-restart { background: transparent; color: var(--ink) !important; box-shadow: inset 0 0 0 1.5px var(--ink); }
+.dg-play::before { content: ""; width: .7em; height: .8em; border-left: .25em solid currentColor; border-right: .25em solid currentColor; box-sizing: border-box; }
+.dg-play.paused::before { width: 0; height: 0; border: 0; border-left: .7em solid currentColor; border-top: .45em solid transparent; border-bottom: .45em solid transparent; margin-left: .2em; }
+.dg-bar { flex: 1; height: 6px; border-radius: 3px; background: color-mix(in srgb, var(--ink) 15%, transparent); cursor: pointer; position: relative; touch-action: none; }
+.dg-fill { height: 100%; border-radius: 3px; background: var(--accent); width: 0; }
+.dg-hint { font-size: .75em; color: var(--muted); white-space: nowrap; }
+.dg-close {
+	position: absolute; top: .4em; right: .55em; z-index: 2; background: none; border: 0; cursor: pointer;
+	font-size: 1.9em; line-height: 1; color: var(--muted); padding: .1em .25em;
+}
+.dg-close:hover { color: var(--ink); }
+.dg-panel { overflow-y: auto; padding: .4em 1.6em 1.6em; border-top: 3.2em solid var(--surface); background: var(--surface); border-left: 1px solid color-mix(in srgb, var(--ink) 10%, transparent); font-size: .82em; line-height: 1.65; color: var(--ink); font-weight: 400; }
+.dg-panel h3 { color: var(--ink); font-size: 1.35em; margin: 0 0 .35em; }
+.dg-panel p { margin: 0 0 1em; color: var(--ink); opacity: .88; }
+.dg-panel .dg-tag { color: var(--accent); font-weight: 600; opacity: 1; }
+.dg-panel ul { margin: 0 0 1.1em 1.1em; list-style: disc; }
+.dg-panel li { margin: 0 0 .35em; }
+.dg-panel .dg-sub { font-size: .78em; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); opacity: 1; margin: 1.4em 0 .6em; }
+.dg-back { background: none; border: 0; padding: 0; margin: 0 0 .8em; color: var(--accent); cursor: pointer; font: inherit; font-weight: 600; }
+.dg-chips { display: flex; flex-wrap: wrap; gap: .4em; }
+.dg-chip {
+	font: inherit; font-size: .9em; padding: .3em .75em; border-radius: 999px; cursor: pointer;
+	background: transparent; color: var(--ink); border: 1px solid color-mix(in srgb, var(--ink) 25%, transparent);
+}
+.dg-chip:hover, .dg-chip.on { border-color: var(--accent); color: var(--accent); }
+.dg-stack { display: flex; flex-wrap: wrap; gap: .35em; margin: .2em 0 0; }
+.dg-stack span { font-size: .85em; padding: .15em .6em; border-radius: 4px; background: color-mix(in srgb, var(--accent) 12%, transparent); color: var(--ink); }
+.dg-nested { margin: .4em 0 1.2em; padding: 1em; border-radius: 10px; background: var(--bg); border: 1px dashed color-mix(in srgb, var(--accent) 45%, transparent); }
+.dg-nested figcaption { font-size: .82em; font-weight: 700; color: var(--accent); margin-bottom: .7em; }
+.dg-steps { display: flex; gap: .4em; align-items: stretch; }
+.dg-nested.dg-row .dg-steps { flex-wrap: wrap; align-items: center; }
+.dg-nested.dg-col .dg-steps { flex-direction: column; }
+.dg-nested.dg-col .dg-step { flex: none; }
+.dg-step { flex: 1 1 7em; padding: .5em .65em; border-radius: 8px; background: var(--surface); border: 1.5px solid var(--ink); line-height: 1.35; }
+.dg-step strong { display: block; font-size: .92em; color: var(--ink); }
+.dg-step span { display: block; font-size: .8em; color: var(--muted); }
+.dg-step-arrow { flex: none; align-self: center; width: 0; height: 0; border-left: 6px solid var(--ink); border-top: 5px solid transparent; border-bottom: 5px solid transparent; }
+.dg-nested.dg-col .dg-step-arrow { border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 6px solid var(--ink); border-bottom: 0; }
+
+@media (max-width: 900px) {
+	.dg-dialog { grid-template-columns: 1fr; grid-template-rows: auto auto; height: auto; max-height: 96vh; overflow-y: auto; }
+	.dg-panel { border-left: 0; border-top: 1px solid color-mix(in srgb, var(--ink) 10%, transparent); overflow: visible; padding-top: 1.4em; }
+	.dg-main { padding-top: 3.4em; }
+	.dg-modal .dg-close, .dg-modal .dg-close:hover { position: fixed; top: calc(2vh + .4em); right: calc(2vw + .55em); }
+	.dg-hint { display: none; }
+}
+
+/* card thumbnails advertise that they open the explorer */
+[data-diagram] { position: relative; cursor: zoom-in; display: block; }
+[data-diagram]::after {
+	content: "Explore the architecture"; position: absolute; right: .6em; bottom: .6em; padding: .25em .7em;
+	font-size: .62em; font-weight: 600; line-height: 1.6; letter-spacing: .03em; border-radius: 999px;
+	background: rgba(17, 24, 39, 0.82); color: #fff; opacity: 0; transform: translateY(4px);
+	transition: opacity .2s, transform .2s; pointer-events: none; text-shadow: none;
+}
+[data-diagram]:hover::after, [data-diagram]:focus-visible::after { opacity: 1; transform: none; }
+@media (hover: none) { [data-diagram]::after { opacity: 1; transform: none; } }
+
+/* neutralize the template's global button skin inside the explorer */
+.dg-modal button, .dg-modal button:hover, .dg-modal button:active {
+	background-image: none !important; box-shadow: none !important; text-shadow: none !important; max-width: none;
+	font-family: inherit; font-weight: 600; line-height: 1; outline-offset: 2px; overflow: visible;
+}
+.dg-modal .dg-controls button { padding: 0 !important; border-radius: 50% !important; font-size: 1em !important; }
+.dg-modal .dg-controls .dg-play, .dg-modal .dg-controls .dg-play:hover { background-color: var(--accent) !important; color: #fff !important; }
+html[data-theme="dark"] .dg-modal .dg-controls .dg-play, html[data-theme="dark"] .dg-modal .dg-controls .dg-play:hover { color: #0b0f14 !important; }
+.dg-modal .dg-controls .dg-restart, .dg-modal .dg-controls .dg-restart:hover { background-color: transparent !important; color: var(--ink) !important; box-shadow: inset 0 0 0 1.5px var(--ink) !important; }
+.dg-modal .dg-close, .dg-modal .dg-close:hover { background: var(--surface) !important; padding: .1em .25em !important; border-radius: 6px !important; font-size: 1.9em !important; font-weight: 300; color: var(--muted) !important; }
+.dg-modal .dg-close:hover { color: var(--ink) !important; }
+.dg-modal .dg-chip, .dg-modal .dg-chip:hover { padding: .45em .8em !important; border-radius: 999px !important; font-size: .88em !important; font-weight: 500; background: transparent !important; color: var(--ink) !important; line-height: 1.2; }
+.dg-modal .dg-chip:hover, .dg-modal .dg-chip.on { color: var(--accent) !important; border-color: var(--accent); }
+.dg-modal .dg-back, .dg-modal .dg-back:hover { background: none !important; padding: 0 !important; color: var(--accent) !important; font-size: 1em !important; }
+.theme-toggle, .theme-toggle:hover { background-image: none !important; padding: 0 !important; max-width: none; }
+
+/* the template stretches buttons and centers text on small screens */
+.dg-modal .dg-close, .dg-modal .dg-controls button, .dg-modal .dg-chip, .dg-modal .dg-back { width: auto !important; display: inline-grid; }
+.dg-modal .dg-controls button { width: 2.4em !important; }
+.dg-panel, .dg-panel * { text-align: left; }
+.dg-modal .dg-close:active { top: .4em !important; }
+.dg-modal .dg-controls button:active { top: 0 !important; }
