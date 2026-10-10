@@ -1,13 +1,13 @@
-/* light/dark toggle: follows the os until the visitor picks a side, then remembers it */
+/* light/dark toggle: dark by default, remembers the visitor's choice once they switch */
 (function () {
   "use strict";
-  var KEY = "theme-pref", mq = window.matchMedia("(prefers-color-scheme: dark)");
+  var KEY = "theme-pref";
   // inline icons so the toggle never depends on an external icon font loading
   var SUN = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>';
   var MOON = '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.5 14.6A8.5 8.5 0 0 1 9.4 3.5a8.5 8.5 0 1 0 11.1 11.1z"/></svg>';
 
   function saved() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
-  function current() { var p = saved(); return p === "light" || p === "dark" ? p : (mq.matches ? "dark" : "light"); }
+  function current() { var p = saved(); return p === "light" || p === "dark" ? p : "dark"; }
 
   function apply() {
     var t = current();
@@ -39,7 +39,6 @@
   }
 
   apply();
-  mq.addEventListener("change", function () { if (!saved()) swap(apply); });
   document.addEventListener("DOMContentLoaded", function () {
     var nav = document.getElementById("nav");
     if (nav && !nav.querySelector(".theme-toggle")) {
@@ -47,7 +46,7 @@
       b.type = "button"; b.className = "theme-toggle";
       b.addEventListener("click", function () {
         var flip = function () {
-          try { localStorage.setItem(KEY, current() === "dark" ? "light" : "dark"); } catch (e) { /* storage blocked: follow the os */ }
+          try { localStorage.setItem(KEY, current() === "dark" ? "light" : "dark"); } catch (e) { /* storage blocked: stay on the default */ }
           apply();
         };
         swap(flip);
