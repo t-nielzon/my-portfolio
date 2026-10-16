@@ -1,31 +1,135 @@
-/* dark theme overrides for the base template; light keeps the original look */
+/* shared palette with the demos site: warm paper light theme, deep navy dark theme */
 .theme-toggle {
 	position: absolute; right: 1em; top: 50%; transform: translateY(-50%);
 	width: 2.3em; height: 2.3em; border-radius: 50%; border: 0; cursor: pointer; padding: 0;
-	background: transparent !important; box-shadow: none !important; color: #fff; font-size: 1em; line-height: 1;
+	background: transparent !important; box-shadow: none !important; color: #14161a !important; font-size: 1em; line-height: 1;
 	display: grid; place-items: center;
 }
-.theme-toggle:hover { background: rgba(255, 255, 255, 0.1) !important; }
 .theme-toggle svg { pointer-events: none; display: block; }
+/* the template nudges pressed buttons with top: 1px; that would yank this one out from under the cursor and swallow the click */
+.theme-toggle, .theme-toggle:hover, .theme-toggle:active { top: 50% !important; transform: translateY(-50%) !important; background-color: transparent !important; }
+.theme-toggle:hover { background-color: rgba(20, 22, 26, 0.07) !important; }
+.theme-toggle:focus-visible { outline: 2px solid #2350b8; outline-offset: 2px; }
+html[data-theme="dark"] .theme-toggle { color: #e6edf5 !important; }
+html[data-theme="dark"] .theme-toggle:hover { background-color: rgba(255, 255, 255, 0.1) !important; }
+html[data-theme="dark"] .theme-toggle:focus-visible { outline-color: #6f9cff; }
 
+/* light: page, type and links */
+body { background: #f6f3ee; }
+body, input, textarea, select { color: #34373d; }
+h1, h2, h3, h4, h5, h6, strong, b { color: #14161a; }
+a { color: #2350b8; }
+a:hover { color: #1b4199 !important; }
+hr { border-top-color: #e4ddd1; box-shadow: none; }
+header > p, footer > p { color: #61656e; }
+
+/* light: bands; the template's paper texture and embossed text give way to flat paper tones */
+.wrapper { background-image: none; box-shadow: inset 0 1px 0 0 #e4ddd1; text-shadow: none; }
+.wrapper.style1 { background-color: #f6f3ee; }
+.wrapper.style2 { background-color: #f8f6f2; text-shadow: none; }
+.wrapper.style3 { background-color: #f1ede6; text-shadow: none; }
+.wrapper.style4 { background-color: #f6f3ee; color: #34373d; text-shadow: none; }
+.wrapper.style4 h1, .wrapper.style4 h2, .wrapper.style4 h3, .wrapper.style4 h4, .wrapper.style4 h5, .wrapper.style4 h6 { color: #14161a; }
+
+/* light: cards */
+.box { background: #ffffff; box-shadow: inset 0 0 0 1px #e4ddd1, 0 2px 6px 0 rgba(20, 22, 26, 0.05); }
+.icon.featured { color: #14161a !important; }
+
+/* light: nav */
+#nav { background-color: #ffffff; box-shadow: 0 1px 0 0 #e4ddd1; }
+#nav a { color: #14161a; }
+#nav a:hover { color: #14161a !important; background: #f1ede6; }
+#nav a.active { background: #f1ede6; }
+#nav a.active:before { border-top-color: #ffffff; }
+#nav a:focus-visible { outline: 2px solid #2350b8; outline-offset: -2px; }
+
+/* light: buttons; flat accent fill replaces the template's gradient and bevel */
+input[type="button"], input[type="submit"], input[type="reset"], .button {
+	background-image: none; background-color: #2350b8; color: #ffffff !important; text-shadow: none; box-shadow: none;
+}
+input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover, .button:hover { background-color: #1b4199; color: #ffffff !important; }
+input[type="button"]:active, input[type="submit"]:active, input[type="reset"]:active, .button:active { background-color: #1b4199; }
+input[type="button"]:focus-visible, input[type="submit"]:focus-visible, input[type="reset"]:focus-visible, .button:focus-visible { outline: 2px solid #2350b8; outline-offset: 3px; }
+input[type="button"].alt, input[type="submit"].alt, input[type="reset"].alt, .button.alt {
+	background-color: #ffffff; color: #14161a !important; box-shadow: inset 0 0 0 1px #cdc4b5;
+}
+input[type="button"].alt:hover, input[type="submit"].alt:hover, input[type="reset"].alt:hover, .button.alt:hover { background-color: #f1ede6; color: #14161a !important; }
+input[type="button"].alt:active, input[type="submit"].alt:active, input[type="reset"].alt:active, .button.alt:active { background-color: #f1ede6; }
+
+/* light: form fields */
+form input[type=text], form input[type=email], form input[type=password], form select, form textarea,
+.wrapper.style4 form input[type=text], .wrapper.style4 form input[type=password], .wrapper.style4 form select, .wrapper.style4 form textarea {
+	background: #ffffff; color: #34373d; border: solid 1px #cdc4b5; box-shadow: none;
+}
+form input[type=text]:focus, form input[type=email]:focus, form input[type=password]:focus, form select:focus, form textarea:focus,
+.wrapper.style4 form input[type=text]:focus, .wrapper.style4 form input[type=password]:focus, .wrapper.style4 form select:focus, .wrapper.style4 form textarea:focus {
+	background: #ffffff; border-color: #2350b8; box-shadow: 0 0 0 1px #2350b8; outline: 0;
+}
+form ::placeholder { color: #61656e !important; opacity: 1; }
+#copyright { color: #61656e; }
+#copyright li { border-left-color: #e4ddd1; box-shadow: none; }
+
+/* dark: page, type and links */
 html[data-theme="dark"] body { background: #0e1319; }
 html[data-theme="dark"] body, html[data-theme="dark"] input, html[data-theme="dark"] textarea { color: #9aa6b5; }
 html[data-theme="dark"] h1, html[data-theme="dark"] h2, html[data-theme="dark"] h3,
 html[data-theme="dark"] h4, html[data-theme="dark"] h5, html[data-theme="dark"] h6 { color: #e6edf5; }
 html[data-theme="dark"] strong, html[data-theme="dark"] b { color: #e6edf5; }
-html[data-theme="dark"] .wrapper { background-image: none; box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.04); text-shadow: none; }
+html[data-theme="dark"] a { color: #6f9cff; }
+html[data-theme="dark"] a:hover { color: #8db1ff !important; }
+html[data-theme="dark"] hr { border-top-color: rgba(255, 255, 255, 0.08); }
+html[data-theme="dark"] header > p, html[data-theme="dark"] footer > p { color: #9aa6b5; }
+
+/* dark: bands */
+html[data-theme="dark"] .wrapper { box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.04); }
 html[data-theme="dark"] .wrapper.style1 { background-color: #0e1319; }
 html[data-theme="dark"] .wrapper.style2 { background-color: #121921; }
 html[data-theme="dark"] .wrapper.style3 { background-color: #0f151c; }
-html[data-theme="dark"] .wrapper.style4 { background-color: #0a0e13; }
-html[data-theme="dark"] .box { background: #18212b; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.07), 0 2px 6px 0 rgba(0, 0, 0, 0.4); }
-html[data-theme="dark"] #nav { background-color: #0a0e13; }
+html[data-theme="dark"] .wrapper.style4 { background-color: #0a0e13; color: #9aa6b5; }
+html[data-theme="dark"] .wrapper.style4 h1, html[data-theme="dark"] .wrapper.style4 h2, html[data-theme="dark"] .wrapper.style4 h3,
+html[data-theme="dark"] .wrapper.style4 h4, html[data-theme="dark"] .wrapper.style4 h5, html[data-theme="dark"] .wrapper.style4 h6 { color: #e6edf5; }
+
+/* dark: cards */
+html[data-theme="dark"] .box { background: #18212b; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08), 0 2px 6px 0 rgba(0, 0, 0, 0.4); }
 html[data-theme="dark"] .icon.featured { color: #cfd9e6 !important; }
-html[data-theme="dark"] form input[type=text], html[data-theme="dark"] form textarea { background: #151d26 !important; }
-html[data-theme="dark"] hr { border-top-color: rgba(255, 255, 255, 0.12); }
-/* the template nudges pressed buttons with top: 1px; that would yank this one out from under the cursor and swallow the click */
-.theme-toggle, .theme-toggle:hover, .theme-toggle:active { top: 50% !important; transform: translateY(-50%) !important; background-color: transparent !important; }
-.theme-toggle:hover { background-color: rgba(255, 255, 255, 0.1) !important; }
+
+/* dark: nav */
+html[data-theme="dark"] #nav { background-color: #0a0e13; box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.08); }
+html[data-theme="dark"] #nav a { color: #e6edf5; }
+html[data-theme="dark"] #nav a:hover { color: #e6edf5 !important; background: #18212b; }
+html[data-theme="dark"] #nav a.active { background: #18212b; }
+html[data-theme="dark"] #nav a.active:before { border-top-color: #0a0e13; }
+html[data-theme="dark"] #nav a:focus-visible { outline-color: #6f9cff; }
+
+/* dark: buttons; filled buttons take dark text because the light accent is too bright for white */
+html[data-theme="dark"] input[type="button"], html[data-theme="dark"] input[type="submit"], html[data-theme="dark"] input[type="reset"], html[data-theme="dark"] .button {
+	background-color: #6f9cff; color: #0a0e13 !important;
+}
+html[data-theme="dark"] input[type="button"]:hover, html[data-theme="dark"] input[type="submit"]:hover, html[data-theme="dark"] input[type="reset"]:hover, html[data-theme="dark"] .button:hover,
+html[data-theme="dark"] input[type="button"]:active, html[data-theme="dark"] input[type="submit"]:active, html[data-theme="dark"] input[type="reset"]:active, html[data-theme="dark"] .button:active {
+	background-color: #8db1ff; color: #0a0e13 !important;
+}
+html[data-theme="dark"] input[type="button"]:focus-visible, html[data-theme="dark"] input[type="submit"]:focus-visible, html[data-theme="dark"] input[type="reset"]:focus-visible, html[data-theme="dark"] .button:focus-visible { outline-color: #6f9cff; }
+html[data-theme="dark"] input[type="button"].alt, html[data-theme="dark"] input[type="submit"].alt, html[data-theme="dark"] input[type="reset"].alt, html[data-theme="dark"] .button.alt {
+	background-color: transparent; color: #e6edf5 !important; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+}
+html[data-theme="dark"] input[type="button"].alt:hover, html[data-theme="dark"] input[type="submit"].alt:hover, html[data-theme="dark"] input[type="reset"].alt:hover, html[data-theme="dark"] .button.alt:hover,
+html[data-theme="dark"] input[type="button"].alt:active, html[data-theme="dark"] input[type="submit"].alt:active, html[data-theme="dark"] input[type="reset"].alt:active, html[data-theme="dark"] .button.alt:active {
+	background-color: rgba(255, 255, 255, 0.06); color: #e6edf5 !important;
+}
+
+/* dark: form fields */
+html[data-theme="dark"] form input[type=text], html[data-theme="dark"] form textarea,
+html[data-theme="dark"] .wrapper.style4 form input[type=text], html[data-theme="dark"] .wrapper.style4 form textarea { background: #151d26 !important; color: #e6edf5; border-color: rgba(255, 255, 255, 0.14); }
+html[data-theme="dark"] form input[type=text]:focus, html[data-theme="dark"] form textarea:focus,
+html[data-theme="dark"] .wrapper.style4 form input[type=text]:focus, html[data-theme="dark"] .wrapper.style4 form textarea:focus { border-color: #6f9cff; box-shadow: 0 0 0 1px #6f9cff; }
+html[data-theme="dark"] form ::placeholder { color: #7f8b9b !important; }
+html[data-theme="dark"] #copyright { color: #7f8b9b; }
+html[data-theme="dark"] #copyright li { border-left-color: rgba(255, 255, 255, 0.08); }
+
+/* paired flow buttons: side by side on wide screens, stacked full width on phones like the other large buttons */
+.cta-pair { margin: 0; }
+.cta-pair li { vertical-align: middle; }
 
 /* theme switch: crossfade via view transitions, color tween as the fallback */
 ::view-transition-old(root), ::view-transition-new(root) { animation-duration: .45s; animation-timing-function: ease-in-out; }
@@ -38,12 +142,12 @@ html.theme-anim, html.theme-anim *, html.theme-anim *::before, html.theme-anim *
 .box.style1.equal-height > p { margin-bottom: 1.6em; }
 .tech-row {
 	list-style: none; margin: auto 0 0; padding: 1.3em 0 0; display: flex; flex-wrap: wrap; justify-content: center; gap: .55em 1.05em;
-	border-top: 1px solid rgba(0, 0, 0, 0.08);
+	border-top: 1px solid #e4ddd1;
 }
 html[data-theme="dark"] .tech-row { border-top-color: rgba(255, 255, 255, 0.08); }
 .tech-row li { padding: 0; margin: 0; }
 .tech {
-	--idle: #9aa3ae; --fill: var(--c, #3e3e3e);
+	--idle: #8a8e96; --fill: var(--c, #3e3e3e);
 	position: relative; display: block; width: 1.55em; height: 1.55em;
 	-webkit-mask: var(--i) center / contain no-repeat; mask: var(--i) center / contain no-repeat;
 	/* a two-tone gradient taller than the icon; sliding it up fills the mark with brand color from the bottom.
@@ -81,3 +185,10 @@ html[data-theme="dark"] .tech-full { background-image: var(--fd, var(--f)); }
 #portfolio .box.style2 { display: flex; flex-direction: column; }
 #portfolio .box.style2 > p { margin-bottom: 1.6em; }
 #portfolio .box.style2 .tech-row { margin-top: auto; }
+
+/* five links plus the toggle overrun a phone's width, so links tighten and the row clears the toggle */
+@media screen and (max-width: 736px) {
+	#nav ul { padding-right: 2.4em; box-sizing: border-box; }
+	#nav a { padding: 0 0.5em; }
+	.theme-toggle { right: 0.4em; }
+}

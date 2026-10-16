@@ -312,7 +312,7 @@
   }
 
   function trap(e) {
-    var f = modal.querySelectorAll("button, [tabindex='0']");
+    var f = modal.querySelectorAll("button, a[href], [tabindex='0']");
     if (!f.length) return;
     var first = f[0], lastEl = f[f.length - 1];
     if (e.shiftKey && document.activeElement === first) { e.preventDefault(); lastEl.focus(); }
@@ -364,11 +364,21 @@
       (n.caption ? "<figcaption>" + esc(n.caption) + "</figcaption>" : "") + '<div class="dg-steps">' + steps + "</div></figure>";
   }
 
+  // only diagrams with a live demo get the call to action, so the field's absence hides it
+  function demoLinks(d) {
+    var demo = d.demo;
+    if (!demo || !demo.href) return "";
+    return '<div class="dg-demo">' +
+      '<a class="dg-demo-go" href="' + esc(demo.href) + '">' + esc(demo.label || "Take me to the demo") + "</a>" +
+      (demo.tour && demo.tour.href ? '<a class="dg-demo-tour" href="' + esc(demo.tour.href) + '">' + esc(demo.tour.label) + "</a>" : "") +
+      "</div>";
+  }
+
   function showPanel() {
     var d = content(), html;
     if (!selected || !d.nodes[selected]) {
       html = '<h3 id="dg-title">' + esc(d.title || "") + "</h3>" +
-        (d.summary ? "<p>" + esc(d.summary) + "</p>" : "") +
+        (d.summary ? "<p>" + esc(d.summary) + "</p>" : "") + demoLinks(d) +
         '<p class="dg-sub">Components</p>' + nodeList(null);
     } else {
       var n = d.nodes[selected];
@@ -379,7 +389,7 @@
         (n.points && n.points.length ? "<ul>" + n.points.map(function (p) { return "<li>" + esc(p) + "</li>"; }).join("") + "</ul>" : "") +
         nested(n.nested) +
         (n.stack && n.stack.length ? '<div class="dg-stack">' + n.stack.map(function (s) { return "<span>" + esc(s) + "</span>"; }).join("") + "</div>" : "") +
-        '<p class="dg-sub">Other components</p>' + nodeList(selected);
+        '<p class="dg-sub">Other components</p>' + nodeList(selected) + demoLinks(d);
     }
     panel.innerHTML = html;
     panel.scrollTop = 0;
