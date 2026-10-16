@@ -1,13 +1,34 @@
-/* light/dark toggle: dark by default, remembers the visitor's choice once they switch */
+/* light/dark toggle: dark by default; the choice lives in a cookie shared with the demos site so it carries across both */
 (function () {
   "use strict";
+  var COOKIE = "nt-theme";
   var KEY = "theme-pref";
+  var DEFAULT = "dark";
   // inline icons so the toggle never depends on an external icon font loading
   var SUN = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>';
   var MOON = '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.5 14.6A8.5 8.5 0 0 1 9.4 3.5a8.5 8.5 0 1 0 11.1 11.1z"/></svg>';
 
-  function saved() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
-  function current() { var p = saved(); return p === "light" || p === "dark" ? p : "dark"; }
+  function valid(v) { return v === "light" || v === "dark" ? v : null; }
+  function fromCookie() {
+    var m = document.cookie.match(/(?:^|;\s*)nt-theme=([^;]*)/);
+    return m ? valid(decodeURIComponent(m[1])) : null;
+  }
+  function fromStorage() { try { return valid(localStorage.getItem(KEY)); } catch (e) { return null; } }
+  function saved() { return fromCookie() || fromStorage(); }
+  function current() { return saved() || DEFAULT; }
+
+  // only the production domain shares the cookie with its subdomains; preview hosts keep a host-only cookie
+  function sharedDomain() {
+    var h = location.hostname;
+    return h === "nielzontolentino.com" || /\.nielzontolentino\.com$/.test(h);
+  }
+  function persist(t) {
+    var c = COOKIE + "=" + t + "; Path=/; Max-Age=31536000; SameSite=Lax";
+    if (location.protocol === "https:") c += "; Secure";
+    if (sharedDomain()) c += "; Domain=.nielzontolentino.com";
+    document.cookie = c;
+    try { localStorage.setItem(KEY, t); } catch (e) { /* storage blocked: the cookie still carries the choice */ }
+  }
 
   function apply() {
     var t = current();
@@ -38,6 +59,10 @@
     setTimeout(function () { root.classList.remove("theme-anim"); }, 450);
   }
 
+  // a choice saved before the shared cookie existed is promoted to it, so the demos site sees it too
+  var prior = saved();
+  if (prior && (fromCookie() !== prior || fromStorage() !== prior)) persist(prior);
+
   apply();
   document.addEventListener("DOMContentLoaded", function () {
     var nav = document.getElementById("nav");
@@ -45,11 +70,10 @@
       var b = document.createElement("button");
       b.type = "button"; b.className = "theme-toggle";
       b.addEventListener("click", function () {
-        var flip = function () {
-          try { localStorage.setItem(KEY, current() === "dark" ? "light" : "dark"); } catch (e) { /* storage blocked: stay on the default */ }
+        swap(function () {
+          persist(current() === "dark" ? "light" : "dark");
           apply();
-        };
-        swap(flip);
+        });
       });
       nav.appendChild(b);
     }

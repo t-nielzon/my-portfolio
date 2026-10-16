@@ -21,10 +21,18 @@
       name="viewport"
       content="width=device-width, initial-scale=1, user-scalable=no"
     />
+    <script>
+      // paint with the saved theme from the first frame; mirrors the read order in theme.js
+      (function () {
+        var m = document.cookie.match(/(?:^|;\s*)nt-theme=(light|dark)(?:;|$)/), t = m && m[1];
+        if (!t) { try { t = localStorage.getItem("theme-pref"); } catch (e) {} }
+        document.documentElement.setAttribute("data-theme", t === "light" ? "light" : "dark");
+      })();
+    </script>
     <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="stylesheet" href="assets/css/theme.css?v=19" />
-    <link rel="stylesheet" href="assets/css/diagrams.css?v=19" />
-    <script src="assets/js/theme.js?v=19"></script>
+    <link rel="stylesheet" href="assets/css/theme.css?v=21" />
+    <link rel="stylesheet" href="assets/css/diagrams.css?v=21" />
+    <script src="assets/js/theme.js?v=21"></script>
     <script
       src="https://kit.fontawesome.com/c26c214d50.js"
       crossorigin="anonymous"
@@ -37,6 +45,7 @@
         <li><a href="#top">Me</a></li>
         <li><a href="#work">Work</a></li>
         <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="https://work.nielzontolentino.com/">Demos</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -256,7 +265,7 @@
           <div class="col-4 col-6-medium col-12-small">
             <article class="box style2">
               <span class="image featured" data-diagram="monee" role="button" tabindex="0" aria-label="Explore the Monee AI support architecture"
-                ><img src="images/monee-ai-support.gif" data-src-dark="images/monee-ai-support-dark.gif" alt="Monee AI support pipeline architecture"
+                ><img src="images/monee-ai-support.gif?v=2" data-src-dark="images/monee-ai-support-dark.gif?v=2" alt="Monee AI support pipeline architecture"
               /></span>
               <h3>Monee AI Support</h3>
               <p style="text-align: justify">
@@ -354,10 +363,19 @@
           </div>
         </div>
         <footer>
-          <p>Ready to collaborate?</p>
-          <a href="#contact" class="button large scrolly"
-            >Get in touch with me</a
-          >
+          <p>Want to see some of it running?</p>
+          <ul class="actions cta-pair">
+            <li>
+              <a href="https://work.nielzontolentino.com/" class="button large"
+                >See my demos</a
+              >
+            </li>
+            <li>
+              <a href="#contact" class="button large alt scrolly"
+                >Get in touch with me</a
+              >
+            </li>
+          </ul>
         </footer>
       </div>
     </article>
@@ -487,8 +505,8 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/diagram-content.js?v=19"></script>
-    <script src="assets/js/diagrams.js?v=19"></script>
+    <script src="assets/js/diagram-content.js?v=21"></script>
+    <script src="assets/js/diagrams.js?v=21"></script>
     <script src="assets/js/equalize.js?v=19"></script>
   </body>
 </html>

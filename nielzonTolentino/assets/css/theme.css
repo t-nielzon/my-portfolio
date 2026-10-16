@@ -81,3 +81,14 @@ html[data-theme="dark"] .tech-full { background-image: var(--fd, var(--f)); }
 #portfolio .box.style2 { display: flex; flex-direction: column; }
 #portfolio .box.style2 > p { margin-bottom: 1.6em; }
 #portfolio .box.style2 .tech-row { margin-top: auto; }
+
+/* paired flow buttons in the portfolio footer: side by side on wide screens, stacked like the other large buttons on phones */
+.cta-pair { margin: 0; }
+.cta-pair li { vertical-align: middle; }
+
+/* five links plus the toggle overrun a phone's width, so links tighten and the row clears the toggle */
+@media screen and (max-width: 736px) {
+	#nav ul { padding-right: 2.4em; box-sizing: border-box; }
+	#nav a { padding: 0 0.5em; }
+	.theme-toggle { right: 0.4em; }
+}

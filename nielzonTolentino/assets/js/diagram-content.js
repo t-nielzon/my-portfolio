@@ -350,6 +350,11 @@ window.DIAGRAM_CONTENT = {
   monee: {
     title: "AI support pipeline: helpdesk to reply",
     summary: "An event-driven pipeline that answers shopper email for many merchant storefronts. Every inbound message becomes a turn in a DynamoDB state machine with compare-and-set transitions. A pure policy engine decides whether each draft is emailed, held for a human, or kept as an internal note. I was the primary engineer, responsible for the architecture, the production cutover, CI and observability.",
+    demo: {
+      label: "Take me to the demo",
+      href: "https://work.nielzontolentino.com/support-pipeline/",
+      tour: { label: "Tour the analytics dashboard", href: "https://work.nielzontolentino.com/support-pipeline/analytics/?tour=1" }
+    },
     nodes: {
       webhook: {
         title: "Helpdesk webhook",
