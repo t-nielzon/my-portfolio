@@ -14,8 +14,9 @@ Professional work:
 * **SmartFill**: multi-agent clinical form autofill for the Navix Hub EMR across OpenAI and AWS Bedrock.
 * **Monee AI Support**: serverless AI customer-support backend on Go, AWS Lambda and Claude on Databricks.
 
-Side projects:
+In my free time (a carousel on the site):
 
+* **9 Kings Planner**: MIT-licensed build planner for the roguelike 9 Kings (React, TypeScript, Zustand, dnd-kit).
 * **Kaetram**: open-source 2D browser MMORPG.
 * **Hunters NavAid Tools**: Philippine Air Force Innovation Challenge entry for coordinate conversion and mission planning.
 * **Shapify**: Babylon.js sandbox for drawing 2D shapes and extruding them to 3D.
