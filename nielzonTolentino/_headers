@@ -4,3 +4,7 @@
   Cache-Control: public, max-age=604800
 /images/*.jpg
   Cache-Control: public, max-age=604800
+/images/*.webp
+  Cache-Control: public, max-age=604800
+/images/*.gif
+  Cache-Control: public, max-age=604800
