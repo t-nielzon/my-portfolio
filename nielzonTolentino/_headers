@@ -1,0 +1,6 @@
+# clips and posters are large and rarely change; a week of caching keeps repeat visits light
+# while still picking up a re-recorded clip without renaming files
+/images/clips/*
+  Cache-Control: public, max-age=604800
+/images/*.jpg
+  Cache-Control: public, max-age=604800
