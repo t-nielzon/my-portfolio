@@ -30,7 +30,7 @@
       })();
     </script>
     <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="stylesheet" href="assets/css/theme.css?v=21" />
+    <link rel="stylesheet" href="assets/css/theme.css?v=22" />
     <link rel="stylesheet" href="assets/css/diagrams.css?v=21" />
     <script src="assets/js/theme.js?v=21"></script>
     <script
@@ -286,80 +286,114 @@
               </ul>
             </article>
           </div>
+          <div class="col-12 carousel-head">
+            <h3 style="text-align: left; margin: 0.5em 0 1em 0">In my free time</h3>
+            <div class="carousel-nav">
+              <button type="button" class="carousel-btn" data-dir="-1" aria-controls="free-time-track" aria-label="Previous project">&#8249;</button>
+              <button type="button" class="carousel-btn" data-dir="1" aria-controls="free-time-track" aria-label="Next project">&#8250;</button>
+            </div>
+          </div>
           <div class="col-12">
-            <h3 style="text-align: left; margin: 0.5em 0 1em 0">Side projects</h3>
-          </div>
-          <div class="col-4 col-6-medium col-12-small">
-            <article class="box style2">
-              <a
-                href="https://kaetram.com"
-                target="_blank"
-                class="image featured"
-                ><img src="images/kaetram.gif" alt=""
-              /></a>
-              <h3><a href="https://kaetram.com" target="_blank">Kaetram</a></h3>
-              <p style="text-align: justify">
-                Have a glimpse of my geek gamer side manifesting as I contribute
-                to this open-source, 2D browser MMORPG. Explore a world where
-                you can discover quests, complete achievements, defeat bosses,
-                create guilds, train skills, and collaborate with others to
-                defeat tough enemies!
-              </p>
-  <ul class="tech-row">
-                <li data-label="TypeScript"><span class="tech" role="img" aria-label="TypeScript" style="--i: url(/images/tech/typescript.svg); --c: #3178C6"></span></li>
-                <li data-label="Node.js"><span class="tech" role="img" aria-label="Node.js" style="--i: url(/images/tech/nodedotjs.svg); --c: #5FA04E"></span></li>
-                <li data-label="MongoDB"><span class="tech" role="img" aria-label="MongoDB" style="--i: url(/images/tech/mongodb.svg); --c: #47A248"></span></li>
-                <li data-label="Astro"><span class="tech" role="img" aria-label="Astro" style="--i: url(/images/tech/astro.svg); --c: #BC52EE"></span></li>
-                <li data-label="Sass"><span class="tech" role="img" aria-label="Sass" style="--i: url(/images/tech/sass.svg); --c: #CC6699"></span></li>
-              </ul>
-            </article>
-          </div>
-          <div class="col-4 col-6-medium col-12-small">
-            <article class="box style2">
-              <a
-                href="https://t-nielzon.github.io/hunters-navaid-tools/"
-                target="_blank"
-                class="image featured"
-                ><img src="images/hunters.gif" alt=""
-              /></a>
-              <h3><a href="https://t-nielzon.github.io/hunters-navaid-tools/" target="_blank">Hunters NavAid Tools</a></h3>
-              <p style="text-align: justify">
-                A Philippine Air Force Innovation Challenge entry, this
-                integrates Google's API to extract location data, and the MGRS
-                JavaScript library to convert coordinates. A pivotal resource
-                used by PAF pilots and operators alike in mission planning,
-                tactical positioning, and execution.
-              </p>
-  <ul class="tech-row">
-                <li data-label="JavaScript"><span class="tech" role="img" aria-label="JavaScript" style="--i: url(/images/tech/javascript.svg); --c: #F7DF1E"></span></li>
-                <li data-label="Google Maps"><span class="tech" role="img" aria-label="Google Maps" style="--i: url(/images/tech/googlemaps.svg); --c: #4285F4"></span></li>
-                <li data-label="HTML5"><span class="tech" role="img" aria-label="HTML5" style="--i: url(/images/tech/html5.svg); --c: #E34F26"></span></li>
-                <li data-label="CSS"><span class="tech" role="img" aria-label="CSS" style="--i: url(/images/tech/css.svg); --c: #663399"></span></li>
-              </ul>
-            </article>
-          </div>
-          <div class="col-4 col-6-medium col-12-small">
-            <article class="box style2">
-              <a
-                href="https://shapify.surge.sh"
-                target="_blank"
-                class="image featured"
-                ><img src="images/shapify.gif" alt=""
-              /></a>
-              <h3><a href="https://shapify.surge.sh" target="_blank">Shapify</a></h3>
-              <p style="text-align: justify">
-                Your new playground for bringing your shapes to life! Made from
-                scratch with Babylon.js, Shapify lets you draw 2D shapes, then
-                extrude them to 3D and edit them in any way you wish! A fun
-                little sandbox to unleash your creativity, which also works as a
-                neat visual aid!
-              </p>
-  <ul class="tech-row">
-                <li data-label="Babylon.js"><span class="tech" role="img" aria-label="Babylon.js" style="--i: url(/images/tech/babylondotjs.svg); --c: #BB464B"></span></li>
-                <li data-label="JavaScript"><span class="tech" role="img" aria-label="JavaScript" style="--i: url(/images/tech/javascript.svg); --c: #F7DF1E"></span></li>
-                <li data-label="HTML5"><span class="tech" role="img" aria-label="HTML5" style="--i: url(/images/tech/html5.svg); --c: #E34F26"></span></li>
-              </ul>
-            </article>
+            <div class="carousel-track" id="free-time-track" role="region" aria-roledescription="carousel" aria-label="Free-time projects" tabindex="0">
+              <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="1 of 4">
+                <article class="box style2">
+                  <a
+                    href="https://9-kings-planner.netlify.app/"
+                    target="_blank"
+                    class="image featured"
+                    ><img src="images/9-kings-planner.jpg" alt="A kingdom build laid out on the 9 Kings Planner grid"
+                  /></a>
+                  <h3><a href="https://9-kings-planner.netlify.app/" target="_blank">9 Kings Planner</a></h3>
+                  <p style="text-align: justify">
+                    Born from too many late runs of the roguelike 9 Kings. Drag
+                    cards from every king onto your kingdom grid, expand plots,
+                    browse the full card database, then share the whole build with
+                    a single link. Open source under the MIT License.
+                  </p>
+                  <p class="source-link"><a href="https://github.com/t-nielzon/9-kings-planner" target="_blank" rel="noopener">View the source</a></p>
+      <ul class="tech-row">
+                    <li data-label="React"><span class="tech" role="img" aria-label="React" style="--i: url(/images/tech/react.svg); --c: #61DAFB"></span></li>
+                    <li data-label="TypeScript"><span class="tech" role="img" aria-label="TypeScript" style="--i: url(/images/tech/typescript.svg); --c: #3178C6"></span></li>
+                    <li data-label="Vite"><span class="tech" role="img" aria-label="Vite" style="--i: url(/images/tech/vite.svg); --c: #646CFF"></span></li>
+                    <li data-label="Tailwind CSS"><span class="tech" role="img" aria-label="Tailwind CSS" style="--i: url(/images/tech/tailwindcss.svg); --c: #06B6D4"></span></li>
+                  </ul>
+                </article>
+              </div>
+              <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="2 of 4">
+                <article class="box style2">
+                  <a
+                    href="https://kaetram.com"
+                    target="_blank"
+                    class="image featured"
+                    ><img src="images/kaetram.gif" alt=""
+                  /></a>
+                  <h3><a href="https://kaetram.com" target="_blank">Kaetram</a></h3>
+                  <p style="text-align: justify">
+                    Have a glimpse of my geek gamer side manifesting as I contribute
+                    to this open-source, 2D browser MMORPG. Explore a world where
+                    you can discover quests, complete achievements, defeat bosses,
+                    create guilds, train skills, and collaborate with others to
+                    defeat tough enemies!
+                  </p>
+                  <p class="source-link"><a href="https://github.com/Kaetram/Kaetram-Open" target="_blank" rel="noopener">View the source</a></p>
+      <ul class="tech-row">
+                    <li data-label="TypeScript"><span class="tech" role="img" aria-label="TypeScript" style="--i: url(/images/tech/typescript.svg); --c: #3178C6"></span></li>
+                    <li data-label="Node.js"><span class="tech" role="img" aria-label="Node.js" style="--i: url(/images/tech/nodedotjs.svg); --c: #5FA04E"></span></li>
+                    <li data-label="MongoDB"><span class="tech" role="img" aria-label="MongoDB" style="--i: url(/images/tech/mongodb.svg); --c: #47A248"></span></li>
+                    <li data-label="Astro"><span class="tech" role="img" aria-label="Astro" style="--i: url(/images/tech/astro.svg); --c: #BC52EE"></span></li>
+                    <li data-label="Sass"><span class="tech" role="img" aria-label="Sass" style="--i: url(/images/tech/sass.svg); --c: #CC6699"></span></li>
+                  </ul>
+                </article>
+              </div>
+              <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="3 of 4">
+                <article class="box style2">
+                  <a
+                    href="https://t-nielzon.github.io/hunters-navaid-tools/"
+                    target="_blank"
+                    class="image featured"
+                    ><img src="images/hunters.gif" alt=""
+                  /></a>
+                  <h3><a href="https://t-nielzon.github.io/hunters-navaid-tools/" target="_blank">Hunters NavAid Tools</a></h3>
+                  <p style="text-align: justify">
+                    A Philippine Air Force Innovation Challenge entry, this
+                    integrates Google's API to extract location data, and the MGRS
+                    JavaScript library to convert coordinates. A pivotal resource
+                    used by PAF pilots and operators alike in mission planning,
+                    tactical positioning, and execution.
+                  </p>
+                  <p class="source-link"><a href="https://github.com/t-nielzon/hunters-navaid-tools" target="_blank" rel="noopener">View the source</a></p>
+      <ul class="tech-row">
+                    <li data-label="JavaScript"><span class="tech" role="img" aria-label="JavaScript" style="--i: url(/images/tech/javascript.svg); --c: #F7DF1E"></span></li>
+                    <li data-label="Google Maps"><span class="tech" role="img" aria-label="Google Maps" style="--i: url(/images/tech/googlemaps.svg); --c: #4285F4"></span></li>
+                    <li data-label="HTML5"><span class="tech" role="img" aria-label="HTML5" style="--i: url(/images/tech/html5.svg); --c: #E34F26"></span></li>
+                    <li data-label="CSS"><span class="tech" role="img" aria-label="CSS" style="--i: url(/images/tech/css.svg); --c: #663399"></span></li>
+                  </ul>
+                </article>
+              </div>
+              <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="4 of 4">
+                <article class="box style2">
+                  <a
+                    href="https://shapify.surge.sh"
+                    target="_blank"
+                    class="image featured"
+                    ><img src="images/shapify.gif" alt=""
+                  /></a>
+                  <h3><a href="https://shapify.surge.sh" target="_blank">Shapify</a></h3>
+                  <p style="text-align: justify">
+                    Your new playground for bringing your shapes to life! Made from
+                    scratch with Babylon.js, Shapify lets you draw 2D shapes, then
+                    extrude them to 3D and edit them in any way you wish! A fun
+                    little sandbox to unleash your creativity, which also works as a
+                    neat visual aid!
+                  </p>
+      <ul class="tech-row">
+                    <li data-label="Babylon.js"><span class="tech" role="img" aria-label="Babylon.js" style="--i: url(/images/tech/babylondotjs.svg); --c: #BB464B"></span></li>
+                    <li data-label="JavaScript"><span class="tech" role="img" aria-label="JavaScript" style="--i: url(/images/tech/javascript.svg); --c: #F7DF1E"></span></li>
+                    <li data-label="HTML5"><span class="tech" role="img" aria-label="HTML5" style="--i: url(/images/tech/html5.svg); --c: #E34F26"></span></li>
+                  </ul>
+                </article>
+              </div>
+            </div>
           </div>
         </div>
         <footer>
@@ -507,6 +541,7 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/diagram-content.js?v=21"></script>
     <script src="assets/js/diagrams.js?v=21"></script>
-    <script src="assets/js/equalize.js?v=19"></script>
+    <script src="assets/js/equalize.js?v=20"></script>
+    <script src="assets/js/carousel.js?v=1"></script>
   </body>
 </html>

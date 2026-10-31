@@ -92,3 +92,25 @@ html[data-theme="dark"] .tech-full { background-image: var(--fd, var(--f)); }
 	#nav a { padding: 0 0.5em; }
 	.theme-toggle { right: 0.4em; }
 }
+
+/* free-time carousel: native scroll-snap keeps swipe, trackpad and keyboard scrolling for free,
+   the buttons only nudge it one card at a time */
+.carousel-head { display: flex; align-items: center; justify-content: space-between; gap: 1em; }
+.carousel-head h3 { flex: 1; }
+.carousel-nav { display: flex; gap: .5em; margin: 0 0 1em; }
+.carousel-btn { padding: 0; width: 2.2em; height: 2.2em; font-size: 1.2em; line-height: 2.2em; text-align: center; }
+.carousel-btn:disabled { opacity: .35; cursor: default; }
+.carousel-track {
+	--gap: 2.5em;
+	display: flex; gap: var(--gap); overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth;
+	/* the padding keeps the cards' shadows and the overhanging image frames inside the scroll box, which would clip them */
+	padding: .5em .5em 1em; margin: -.5em -.5em 0; scroll-padding-inline: .5em; scrollbar-width: none; overscroll-behavior-x: contain;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.carousel-track:focus-visible { outline: 2px solid #43B3E0; outline-offset: 2px; }
+.carousel-slide { flex: 0 0 calc((100% - 2 * var(--gap)) / 3); scroll-snap-align: start; display: flex; }
+.carousel-slide > .box { flex: 1; margin: 0 !important; max-width: none !important; }
+/* a peek of the next card on smaller screens tells visitors there is more to swipe */
+@media screen and (max-width: 980px) { .carousel-slide { flex-basis: calc((100% - var(--gap)) / 2.15); } }
+@media screen and (max-width: 736px) { .carousel-track { --gap: 1.25em; } .carousel-slide { flex-basis: 86%; } }
+#portfolio .box.style2 > p.source-link { margin: -.9em 0 1.6em; text-align: left; font-size: .9em; }
