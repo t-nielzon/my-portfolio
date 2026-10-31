@@ -114,3 +114,24 @@ html[data-theme="dark"] .tech-full { background-image: var(--fd, var(--f)); }
 @media screen and (max-width: 980px) { .carousel-slide { flex-basis: calc((100% - var(--gap)) / 2.15); } }
 @media screen and (max-width: 736px) { .carousel-track { --gap: 1.25em; } .carousel-slide { flex-basis: 86%; } }
 #portfolio .box.style2 > p.source-link { margin: -.9em 0 1.6em; text-align: left; font-size: .9em; }
+
+/* card clips: poster first, video fades in over it once it is actually playing */
+.card-media { position: relative; display: block; }
+.card-media > a { display: block; position: relative; }
+.card-media img { display: block; width: 100%; height: auto; }
+.card-clip { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .35s ease; pointer-events: none; }
+.card-media.is-playing .card-clip { opacity: 1; }
+.clip-toggle, .clip-toggle:hover, .clip-toggle:active {
+	position: absolute; right: .6em; bottom: .6em; top: auto; z-index: 2;
+	width: 2.2em; height: 2.2em; padding: 0; margin: 0; border-radius: 50%; display: grid; place-items: center;
+	background: rgba(14, 19, 25, .72) !important; background-image: none !important; color: #fff !important;
+	box-shadow: 0 0 0 1px rgba(255, 255, 255, .25); font-size: 1em; line-height: 1; opacity: .8; transition: opacity .2s;
+}
+.clip-toggle:hover, .clip-toggle:focus-visible { opacity: 1; }
+.clip-toggle:focus-visible { outline: 2px solid #43B3E0; outline-offset: 2px; }
+/* screen-reader-only text, used to name repeated links like "view the source" per project */
+.visually-hidden { position: absolute !important; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+/* the template's #666 footer line fails contrast on the dark background */
+html[data-theme="dark"] #copyright li { color: #8b97a7; }
+/* width and height attributes reserve space against layout shift; height auto keeps the drawn ratio true */
+.image img { height: auto; }
