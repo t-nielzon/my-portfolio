@@ -2,7 +2,9 @@
    across rows; css alone can only equalize within a single row */
 (function () {
   "use strict";
-  var GROUPS = ["#work .box.style1", "#portfolio .box.style2"];
+  // carousel cards already share a height through the flex track, and their offset lefts
+  // would defeat the single-column check below on phones
+  var GROUPS = ["#work .box.style1", "#portfolio .col-4 > .box.style2"];
 
   function equalize() {
     GROUPS.forEach(function (sel) {
